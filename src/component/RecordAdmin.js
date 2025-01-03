@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from 'react';
-import { supabase } from '../supabaseClient';
+import React, { useState, useEffect } from "react";
+import { supabase } from "../supabaseClient";
 
 const CrudApp = () => {
   const [items, setItems] = useState([]);
   const [formData, setFormData] = useState({
     id: null,
-    name: '',
-    description: '',
-    date: '',
-    link: '',
+    name: "",
+    description: "",
+    date: "",
+    link: "",
     image: null,
   });
 
@@ -17,7 +17,7 @@ const CrudApp = () => {
   }, []);
 
   const fetchItems = async () => {
-    const { data, error } = await supabase.from('recordmaster').select('*');
+    const { data, error } = await supabase.from("recordmaster").select("*");
     if (error) console.error(error);
     else setItems(data);
   };
@@ -37,42 +37,47 @@ const CrudApp = () => {
       return;
     }
 
-    let imageUrl = '';
-
     // Upload image to Supabase Storage
     const imageFile = formData.image;
     const fileName = `${Date.now()}_${imageFile.name}`;
-    console.log("fileName"+fileName);
-    console.log("imageFile"+imageFile); 
+    console.log("fileName" + fileName);
     const { data, error: uploadError } = await supabase.storage
-      .from('images') 
+      .from("images")
       .upload(fileName, imageFile);
 
     if (uploadError) {
       console.error("Image upload failed:", uploadError.message);
       return;
     }
-
-    imageUrl = data.Key; // Store the image URL in Supabase
-
+    console.log(data);
     const { id, ...dataToSave } = formData;
     if (id) {
       // Update record
-      const { error } = await supabase.from('recordmaster').update({
-        ...dataToSave,
-        image: imageUrl,
-      }).eq('id', id);
+      const { error } = await supabase
+        .from("recordmaster")
+        .update({
+          ...dataToSave,
+          image: fileName,
+        })
+        .eq("id", id);
       if (error) console.error(error);
     } else {
       // Insert new record
-      const { error } = await supabase.from('recordmaster').insert({
+      const { error } = await supabase.from("recordmaster").insert({
         ...dataToSave,
-        image: imageUrl,
+        image: fileName,
       });
       if (error) console.error(error);
     }
 
-    setFormData({ id: null, name: '', description: '', date: '', link: '', image: null });
+    setFormData({
+      id: null,
+      name: "",
+      description: "",
+      date: "",
+      link: "",
+      image: null,
+    });
     fetchItems();
   };
 
@@ -81,7 +86,7 @@ const CrudApp = () => {
   };
 
   const deleteItem = async (id) => {
-    const { error } = await supabase.from('recordmaster').delete().eq('id', id);
+    const { error } = await supabase.from("recordmaster").delete().eq("id", id);
     if (error) console.error(error);
     fetchItems();
   };
@@ -126,12 +131,7 @@ const CrudApp = () => {
           onChange={handleInputChange}
           required
         />
-        <input
-          type="file"
-          name="image"
-          onChange={handleFileChange}
-          required
-        />
+        <input type="file" name="image" onChange={handleFileChange} required />
         <button type="submit">Save</button>
       </form>
 
@@ -147,7 +147,7 @@ const CrudApp = () => {
               <img
                 src={`https://vjvrzdtysyorsntbmrwu.supabase.co/storage/v1/object/public/images/${item.image}`}
                 alt={item.name}
-                style={{ width: '100px' }}
+                style={{ width: "100px" }}
               />
             )}
             <button onClick={() => editItem(item)}>Edit</button>
