@@ -1,12 +1,15 @@
-import './App.css';
-import RecordAdmin from './component/RecordAdmin';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import RecordAdmin from "../src/component/RecordAdmin";
+import Login from "../src/component/Login";
 
-function App() {
-  return (
-    <div>
-      <RecordAdmin />
-    </div>
-  );
-}
+const App = () => (
+  <Router>
+    <Routes>
+      <Route path="/" element={<Login />} />
+      <Route path="/admin" element={<RecordAdmin />} />
+    </Routes>
+  </Router>
+);
 
 export default App;
