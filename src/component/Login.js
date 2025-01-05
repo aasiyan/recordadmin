@@ -10,11 +10,14 @@ const Login = () => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    const { error } = await supabase.auth.signInWithPassword({ email, password });
+    const { error } = await supabase.auth.signInWithPassword({
+      email,
+      password,
+    });
     if (error) {
       setError(error.message);
     } else {
-      navigate("/admin"); // Redirect to RecordAdmin after login
+      navigate("/recordadmin/admin"); // Redirect to RecordAdmin after login
     }
     // navigate("/admin");
   };

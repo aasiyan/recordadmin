@@ -21,11 +21,13 @@ const RecordAdmin = () => {
 
   useEffect(() => {
     const checkSession = async () => {
-      const { data: { session } } = await supabase.auth.getSession();
+      const {
+        data: { session },
+      } = await supabase.auth.getSession();
       if (!session) {
         navigate("/"); // Redirect to login if no session
       }
-    }
+    };
     checkSession();
     fetchItems();
   }, [navigate]);
@@ -33,10 +35,10 @@ const RecordAdmin = () => {
   const handleLogout = async () => {
     const { error } = await supabase.auth.signOut();
     if (error) {
-      console.error('Logout failed:', error.message);
+      console.error("Logout failed:", error.message);
     } else {
-      console.log('User logged out');
-      navigate('/'); // Redirect to login page
+      console.log("User logged out");
+      navigate("/recordadmin"); // Redirect to login page
     }
   };
   const fetchItems = async () => {
@@ -187,11 +189,17 @@ const RecordAdmin = () => {
           .remove([fileName]);
 
         if (deleteError) {
-          console.error("Error deleting image from storage:", deleteError.message);
+          console.error(
+            "Error deleting image from storage:",
+            deleteError.message
+          );
         }
       }
 
-      const { error } = await supabase.from("recordmaster").delete().eq("id", id);
+      const { error } = await supabase
+        .from("recordmaster")
+        .delete()
+        .eq("id", id);
       if (error) {
         console.error("Error deleting record:", error.message);
       }
@@ -204,7 +212,10 @@ const RecordAdmin = () => {
       setLoading(false);
     }
   };
-
+  const formatDate = (date) => {
+    const [year, month, day] = date.split("-");
+    return `${day}-${month}-${year}`;
+  };
   return (
     <>
       {/* <div className="rec-nav">
@@ -215,7 +226,11 @@ const RecordAdmin = () => {
           <h1 className="logo-title">Aasiyan</h1>
         </div>
       </div> */}
-       <button onClick={handleLogout} style={{ position: 'absolute', top: 10, right: 10 }}>
+      <button
+        className="btn btn-primary"
+        onClick={handleLogout}
+        style={{ position: "absolute", top: 20, right: 10 }}
+      >
         Logout
       </button>
       <div className="container">
@@ -289,14 +304,12 @@ const RecordAdmin = () => {
             className="file-input"
             onChange={handleFileChange}
           />
-          {errors.image && <small className="text-danger">{errors.image}</small>}
+          {errors.image && (
+            <small className="text-danger">{errors.image}</small>
+          )}
           <br />
           <br />
-          <button
-            type="submit"
-            className="btn btn-primary"
-            disabled={loading}
-          >
+          <button type="submit" className="btn btn-primary" disabled={loading}>
             {loading ? (
               <span className="spinner-border spinner-border-sm"></span>
             ) : (
@@ -319,7 +332,9 @@ const RecordAdmin = () => {
                 )}
                 <h3 className="record-title">{item.name}</h3>
                 <p className="record-description">{item.description}</p>
-                <p className="record-date">{item.date}</p>
+                <p className="record-date">
+                  {item.date && formatDate(item.date)}
+                </p>
                 <a
                   href={item.link}
                   className="record-link"

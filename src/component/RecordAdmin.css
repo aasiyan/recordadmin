@@ -1,177 +1,181 @@
 /* General Styles */
 body {
-    font-family: 'Roboto', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f0f4f8;
-    color: #333;
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f4f8;
+  color: #333;
 }
 
 .container {
-    max-width: 800px;
-    margin: 0 auto;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 /* Titles */
 .title {
-    text-align: center;
-    font-size: 1.8rem;
-    color: #1a73e8;
-    margin-bottom: 20px;
+  text-align: center;
+  font-size: 1.8rem;
+  color: #1a73e8;
+  margin-bottom: 20px;
 }
 
 .subtitle {
-    text-align: center;
-    font-size: 1.5rem;
-    color: #444;
-    margin-top: 40px;
-    margin-bottom: 20px;
+  text-align: center;
+  font-size: 1.5rem;
+  color: #444;
+  margin-top: 40px;
+  margin-bottom: 20px;
 }
 
 /* Form */
 .form {
-    background: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    margin-bottom: 30px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
 }
 
 .input,
 .file-input {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 2px;
-    margin-left: 0px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 14px;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 2px;
+  margin-left: 0px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
 }
 
 .button {
-    display: inline-block;
-    width: 100%;
-    padding: 10px;
-    background: #1a73e8;
-    color: #fff;
-    font-size: 14px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+  display: inline-block;
+  width: 100%;
+  padding: 10px;
+  background: #1a73e8;
+  color: #fff;
+  font-size: 14px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .button:hover {
-    background: #1558b3;
+  background: #1558b3;
 }
 
 .save-button {
-    background: #34a853;
+  background: #34a853;
 }
 
 .save-button:hover {
-    background: #2b8a43;
+  background: #2b8a43;
 }
 
 /* Records Section */
 .records {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
 .record-card {
-    width: 365px;
-    background: #fff;
-    margin-bottom: 15px;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  width: 365px;
+  background: #fff;
+  margin-bottom: 15px;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .record-title {
-    font-size: 1.2rem;
-    margin: 0;
-    color: #222;
+  font-size: 1.2rem;
+  margin: 0;
+  color: #222;
 }
 
 .record-description,
 .record-date {
-    margin: 5px 0;
-    font-size: 14px;
-    color: #555;
+  margin: 5px 0;
+  font-size: 14px;
+  color: #555;
 }
 
 .record-link {
-    display: inline-block;
-    margin: 10px 0;
-    color: #1a73e8;
-    text-decoration: none;
-    font-weight: bold;
+  display: inline-block;
+  margin: 10px 0;
+  color: #1a73e8;
+  text-decoration: none;
+  font-weight: bold;
 }
 
 .record-link:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 .record-image {
-    width: 100%;
-    height: 300px;
-    margin-top: 10px;
-    border-radius: 4px;
-    border: 1px solid #ddd;
+  width: 100%;
+  height: 300px;
+  margin-top: 10px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
 }
 
 .record-actions {
-    margin-top: 10px;
-    display: flex;
-    gap: 10px;
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
 }
 
 .edit-button {
-    background: #fbbc05;
+  background: #fbbc05;
 }
 
 .edit-button:hover {
-    background: #dba603;
+  background: #dba603;
 }
 
 .delete-button {
-    background: #ea4335;
+  background: #ea4335;
 }
 
 .delete-button:hover {
-    background: #c32c21;
+  background: #c32c21;
 }
 
 .record-card-flex {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 .logo {
-    height: 35px;
+  height: 35px;
 }
 
 .rec-nav {
-    margin-left: 20px;
-    display: flex;
-    gap: 15px;
-    align-items: center;
+  margin-left: 20px;
+  display: flex;
+  gap: 15px;
+  align-items: center;
 }
 
 .logo-title {
-    color: black;
-    font-size: 30px;
+  color: black;
+  font-size: 30px;
 }
 
 .form,
 lable {
-    font-weight: bold;
-    margin-left: -9px;
+  font-weight: bold;
+  margin-left: -9px;
 }
 
 @media (max-width: 550px) {
-    .container {
-        padding: 20px;
-    }
+  .container {
+    padding: 20px;
+  }
+  .title {
+    font-size: 1.5rem;
+    text-align: left;
+  }
 }
