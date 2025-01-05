@@ -52,7 +52,6 @@ const RecordAdmin = () => {
     if (!formData.name) errors.name = "Name is required.";
     if (!formData.description) errors.description = "Description is required.";
     if (!formData.date) errors.date = "Date is required.";
-    if (!formData.link) errors.link = "Video link is required.";
     if (!formData.image) errors.image = "Photo is required.";
     setErrors(errors);
     return Object.keys(errors).length === 0;
@@ -292,7 +291,6 @@ const RecordAdmin = () => {
             onChange={handleInputChange}
             className="input"
           />
-          {errors.link && <small className="text-danger">{errors.link}</small>}
           <br />
           <br />
           <label>Photo</label>
