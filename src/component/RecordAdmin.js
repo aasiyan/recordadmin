@@ -163,6 +163,7 @@ const RecordAdmin = () => {
 
   const editItem = (item) => {
     setFormData(item);
+    scrollToTop();
     setErrors({});
   };
 
@@ -215,6 +216,9 @@ const RecordAdmin = () => {
     const [year, month, day] = date.split("-");
     return `${day}-${month}-${year}`;
   };
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
   return (
     <>
       {/* <div className="rec-nav">
@@ -241,7 +245,9 @@ const RecordAdmin = () => {
             saveItem();
           }}
         >
-          <label>Name</label>
+          <label>
+            Name <sup style={{ color: "red" }}>*</sup>
+          </label>
           <br />
           <input
             type="text"
@@ -254,7 +260,9 @@ const RecordAdmin = () => {
           {errors.name && <small className="text-danger">{errors.name}</small>}
           <br />
           <br />
-          <label>Description</label>
+          <label>
+            Description<sup style={{ color: "red" }}>*</sup>
+          </label>
           <br />
           <input
             type="text"
@@ -269,7 +277,9 @@ const RecordAdmin = () => {
           )}
           <br />
           <br />
-          <label>Date</label>
+          <label>
+            Date<sup style={{ color: "red" }}>*</sup>
+          </label>
           <br />
           <input
             type="date"
@@ -293,7 +303,9 @@ const RecordAdmin = () => {
           />
           <br />
           <br />
-          <label>Photo</label>
+          <label>
+            Photo<sup style={{ color: "red" }}>*</sup>
+          </label>
           <br />
           <input
             type="file"
