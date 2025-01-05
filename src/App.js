@@ -6,8 +6,8 @@ import Login from "../src/component/Login";
 const App = () => (
   <Router>
     <Routes>
-      <Route path="/" element={<Login />} />
-      <Route path="/admin" element={<RecordAdmin />} />
+      <Route path="/recordadmin" element={<Login />} />
+      <Route path="/recordadmin/admin" element={<RecordAdmin />} />
     </Routes>
   </Router>
 );
