@@ -264,13 +264,14 @@ const RecordAdmin = () => {
             Description<sup style={{ color: "red" }}>*</sup>
           </label>
           <br />
-          <input
+          <textarea
             type="text"
             name="description"
             placeholder="Description"
             value={formData.description}
             onChange={handleInputChange}
             className="input"
+            rows="10"
           />
           {errors.description && (
             <small className="text-danger">{errors.description}</small>

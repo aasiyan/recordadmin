@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import { supabase } from "../supabaseClient";
 import { useNavigate } from "react-router-dom";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
+
 import "./Login.css";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
@@ -19,7 +22,6 @@ const Login = () => {
     } else {
       navigate("/recordadmin/admin"); // Redirect to RecordAdmin after login
     }
-    // navigate("/admin");
   };
 
   return (
@@ -37,15 +39,28 @@ const Login = () => {
           />
         </div>
         <div className="form-group">
-          <label className="form-label">Password:</label>
-          <input
-            type="password"
-            className="form-input"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </div>
+      <label className="form-label">Password:</label>
+      <div style={{ position: "relative", display: "flex", alignItems: "center" }}>
+        <input
+          type={showPassword ? "text" : "password"}
+          className="form-input password-width"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+        />
+        <span
+          style={{
+            position: "absolute",
+            right: "10px",
+            cursor: "pointer",
+            color: "#999",
+          }}
+          onClick={() => setShowPassword((prev) => !prev)}
+        >
+          {showPassword ? <FaEyeSlash /> : <FaEye />}
+        </span>
+      </div>
+    </div>
         {error && <p className="text-danger error-message">{error}</p>}
         <button className="btn btn-primary" type="submit">
           Login
