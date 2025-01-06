@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/recordadmin/static/css/main.519c6c24.css",
-    "main.js": "/recordadmin/static/js/main.26bf628b.js",
+    "main.css": "/recordadmin/static/css/main.4ae4fbf2.css",
+    "main.js": "/recordadmin/static/js/main.35c6b8da.js",
     "static/js/952.8f61e56d.chunk.js": "/recordadmin/static/js/952.8f61e56d.chunk.js",
     "static/js/488.6fea31e9.chunk.js": "/recordadmin/static/js/488.6fea31e9.chunk.js",
     "index.html": "/recordadmin/index.html",
-    "main.519c6c24.css.map": "/recordadmin/static/css/main.519c6c24.css.map",
-    "main.26bf628b.js.map": "/recordadmin/static/js/main.26bf628b.js.map",
+    "main.4ae4fbf2.css.map": "/recordadmin/static/css/main.4ae4fbf2.css.map",
+    "main.35c6b8da.js.map": "/recordadmin/static/js/main.35c6b8da.js.map",
     "952.8f61e56d.chunk.js.map": "/recordadmin/static/js/952.8f61e56d.chunk.js.map",
     "488.6fea31e9.chunk.js.map": "/recordadmin/static/js/488.6fea31e9.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.519c6c24.css",
-    "static/js/main.26bf628b.js"
+    "static/css/main.4ae4fbf2.css",
+    "static/js/main.35c6b8da.js"
   ]
 }
