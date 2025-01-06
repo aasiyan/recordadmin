@@ -14,7 +14,7 @@ const RecordAdmin = () => {
     description: "",
     date: "",
     link: "",
-    image: null,
+    image: null ,
   });
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
@@ -162,6 +162,7 @@ const RecordAdmin = () => {
   };
 
   const editItem = (item) => {
+    item.image=null;
     setFormData(item);
     scrollToTop();
     setErrors({});
